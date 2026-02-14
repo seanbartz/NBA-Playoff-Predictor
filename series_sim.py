@@ -41,21 +41,21 @@ for n in xrange(trials):
 oddswin= len(length)/trials*100
 length.sort()
 if TeamB_Series<1:
-	odds4=length.index(5) if 5 in length else len(length)
+	odds4=length.count(4)
 	print "Odds of Team A winning in 4 games is %d percent" %(odds4/trials*100)
 else:
 	odds4=0
 if TeamB_Series <2:
-	odds5=(length.index(6)-odds4) if 6 in length else (len(length)-odds4)
+	odds5=length.count(5)
 	print "Odds of Team A winning in 5 games is %d percent" %(odds5/trials*100)
 else:
 	odds5=0
 if TeamB_Series<3:
-	odds6= (length.index(7)-odds5-odds4) if 7 in length else (len(length)-odds5-odds4)
+	odds6=length.count(6)
 	print "Odds of Team A winning in 6 games is %d percent" %(odds6/trials*100)
 else:
 	odds6=0
-odds7=len(length[length.index(7):]) if 7 in length else 0
+odds7=length.count(7)
 print "Odds of Team A winning in 7 games is %d percent" %(odds7/trials*100)
 print "Odds of Team A advancing is %d percent" %((odds4+odds5+odds6+odds7)/trials*100)
 print "Odds of Team A being eliminated is %d percent" %(100-oddswin)
