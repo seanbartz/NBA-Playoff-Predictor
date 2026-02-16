@@ -9,6 +9,20 @@ games_season=82.
 TeamA_Series=input("Input Team A's wins in series so far ")
 TeamB_Series=input("Input Team B's wins in series so far ")
 
+# Validate series win totals
+if TeamA_Series >= 4:
+	print "Error: Team A already has 4+ wins. The series is already over (Team A won)."
+	exit()
+if TeamB_Series >= 4:
+	print "Error: Team B already has 4+ wins. The series is already over (Team B won)."
+	exit()
+if TeamA_Series + TeamB_Series >= 7:
+	print "Error: Combined wins (%d) cannot be 7 or more. A series ends when one team reaches 4 wins." % (TeamA_Series + TeamB_Series)
+	exit()
+if TeamA_Series < 0 or TeamB_Series < 0:
+	print "Error: Series wins cannot be negative."
+	exit()
+
 pa=TeamA_Wins/games_season
 pb=TeamB_Wins/games_season
 
